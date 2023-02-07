@@ -1,6 +1,6 @@
 # LINK: https://leetcode.com/problems/search-insert-position/
 
-def searchInsert(nums, target):
+def invalid_searchInsert(nums, target):
     """
     :type nums: List[int]
     :type target: int
@@ -14,6 +14,8 @@ def searchInsert(nums, target):
     # if idx number > target, get new idx by dividing the current idx by 2 and start from beginning
     # if idx number < target, get new idx by dividing the current idx by 2 and adding with the previous idx and start from beginning
 
+
+    Hint: until there are no unexplored values between them
     """
     # binary tree
     stillChecking = True
@@ -28,7 +30,7 @@ def searchInsert(nums, target):
         if idx == len(nums) - 1:
             return len(nums)
 
-        if target > nums[idx] and target < nums[idx + 1]:
+        if nums[idx] < target < nums[idx + 1]:
             return idx + 1
 
         if idx == 0:
